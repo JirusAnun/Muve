@@ -3,6 +3,7 @@ import { BiCategoryAlt } from "react-icons/bi";
 import { MdOutlineSell } from "react-icons/md";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { GoPerson } from "react-icons/go";
+
 function Navbar() {
   return (
     <>
