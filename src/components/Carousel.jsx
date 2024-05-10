@@ -5,7 +5,7 @@ function CarouselAuto({ img }) {
     <Carousel
       autoplay={true}
       loop={true}
-      className="rounded-xl w-[90vw] h-[25vh] mt-5"
+      className="rounded-xl w-[90vw] h-[25vh] mt-5 overflow-hidden"
       autoplayDelay={10000}
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-4 left-2/4 z-50 flex -translate-x-2/4 gap-2">
