@@ -3,14 +3,23 @@ import CarouselAuto from "../components/Carousel";
 import { BackgroundCard } from "../components/BackgroundCard";
 import { Input } from "@material-tailwind/react";
 import { IoIosSearch } from "react-icons/io";
-import { Button } from "@material-tailwind/react";
 
-function Root() {
+function Home() {
   const carouselImage = [
-    "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80",
-    "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80",
-    "https://images.unsplash.com/photo-1518623489648-a173ef7824f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2762&q=80",
+    "src/assets/95100659_2948213515262602_5117867185779245056_n.jpg",
+    "src/assets/440441680_907998344669741_4758802302467900004_n.jpg",
   ];
+
+  const itemCategoies = [
+    "เสื้อผ้า",
+    "เครื่องสำอาง",
+    "ของใช้",
+    "เฟอร์นิเจอร์",
+    "อาหาร",
+    "ผู้ชาย",
+    "ผู้หญิง",
+  ];
+
   return (
     <>
       <div className="flex flex-col items-center">
@@ -29,16 +38,12 @@ function Root() {
             }}
           />
         </div>
-        <div class="flex overflow-x-auto space-x-2 w-[90%] mt-2 ">
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
-          <Button variant="filled">filled</Button>
+        <div class="flex overflow-x-scroll space-x-2 w-[90%] mt-3 ">
+          {itemCategoies.map((category, i) => (
+            <button class=" bg-gray-900 hover:bg-primary text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap">
+              {category}
+            </button>
+          ))}
         </div>
 
         {/* Recieve Item section */}
@@ -61,11 +66,11 @@ function Root() {
             <BackgroundCard key={i} />
           ))}
         </div>
-        <div className="h-[15vh] w-[100%]"/>
+        <div className="h-[15vh] w-[100%]" />
         <Navbar />
       </div>
     </>
   );
 }
 
-export default Root;
+export default Home;

@@ -11,6 +11,11 @@ module.exports = withMT({
       fontFamily: {
         noto: ["Noto Sans Thai", "sans-serif"],
       },
+      variants: {
+        extend: {
+          scale: ["active"],
+        },
+      },
     },
   },
   plugins: [],
