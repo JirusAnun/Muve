@@ -1,0 +1,14 @@
+import Navbar from "../components/Navbar";
+
+function Sell() {
+  return (
+    <>
+      <div>
+        <h1>Sell</h1>
+      </div>
+      <Navbar />
+    </>
+  );
+}
+
+export default Sell;
