@@ -50,9 +50,11 @@ function Home() {
         <div className="text-left w-full mb-2 mt-5 pl-[5%]">
           <h2 className="font-noto font-bold text-xl">สิ่งของที่ต้องได้รับ</h2>
         </div>
-        <div className="grid grid-cols-2 gap-3 w-[90%]">
-          {new Array(2).fill("").map((_, i) => (
-            <BackgroundCard key={i} />
+        <div className="overflow-x-scroll flex gap-3 w-[90%]">
+          {new Array(10).fill("").map((_, i) => (
+            <div key={i} style={{ width: "auto", height: "auto" }}>
+              <BackgroundCard />
+            </div>
           ))}
         </div>
 
