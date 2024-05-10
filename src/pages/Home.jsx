@@ -20,6 +20,31 @@ function Home() {
     "ผู้หญิง",
   ];
 
+  const items = [
+    {
+      "name" : "กระเป๋า",
+      "time" : "วันนี้ 16:00",
+      "img" : "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "name" : "เสื้อ",
+      "time" : "พรุ่งนี้ 7:00",
+      "img" : "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "name" : "กระโปรง",
+      "time" : "พรุ่งนี้ 17:00",
+      "img" : "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "name" : "เสื้อกาวน์",
+      "time" : "16:00 17 พ.ค",
+      "img" : "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    }
+  ];
+
+  
+
   return (
     <>
       <div className="flex flex-col items-center">
@@ -51,12 +76,12 @@ function Home() {
           <h2 className="font-noto font-bold text-xl">สิ่งของที่ต้องได้รับ</h2>
         </div>
         <div className="overflow-x-scroll flex gap-3 w-[90%]">
-          {new Array(10).fill("").map((_, i) => (
+          {items.map((item, i) => (
             <div key={i} style={{ width: "auto", height: "auto" }}>
-              <BackgroundCard />
+              <BackgroundCard name={item.name} time={item.time} img={item.img}/>
             </div>
           ))}
-        </div>
+        </div>  
 
         {/* New Item section */}
 
@@ -64,8 +89,8 @@ function Home() {
           <h2 className="font-noto font-bold text-xl">สินค้าใหม่</h2>
         </div>
         <div className="grid grid-cols-2 gap-3 w-[90%]">
-          {new Array(4).fill("").map((_, i) => (
-            <BackgroundCard key={i} />
+          {items.map((item, i) => (
+            <BackgroundCard name={item.name} time={item.time} img={item.img}/>
           ))}
         </div>
         <div className="h-[15vh] w-[100%]" />
