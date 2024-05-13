@@ -8,6 +8,7 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { HiLanguage } from "react-icons/hi2";
 import { MdOutlinePrivacyTip } from "react-icons/md";
 import { BsTelephone } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function Profile() {
   return (
@@ -119,7 +120,11 @@ function Profile() {
           </div>
         </div>
 
-        <button className=" w-[90%] border-[1px] border-red-600 text-red-600 rounded-xl mt-5 font-noto font-semibold py-1">Log Out</button>
+        <Link to="/login" className="flex justify-center w-[100%]">
+          <button className=" w-[90%] border-[1px] border-red-600 text-red-600 rounded-xl mt-5 font-noto font-semibold py-1">
+            Log Out
+          </button>
+        </Link>
       </div>
       <div className="h-[15vh] w-[100%]" />
       <Navbar />
