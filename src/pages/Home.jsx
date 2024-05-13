@@ -7,11 +7,11 @@ import { BackgroundCard } from "../components/BackgroundCard";
 import { Input } from "@material-tailwind/react";
 import { IoIosSearch } from "react-icons/io";
 
+import image1 from "../assets/95100659_2948213515262602_5117867185779245056_n.jpg";
+import image2 from "../assets/440441680_907998344669741_4758802302467900004_n.jpg";
+
 function Home() {
-  const carouselImage = [
-    "./src/assets/95100659_2948213515262602_5117867185779245056_n.jpg",
-    "./src/assets/440441680_907998344669741_4758802302467900004_n.jpg",
-  ];
+  const carouselImage = [image1, image2];
 
   const itemCategoies = [
     "เสื้อผ้า",
