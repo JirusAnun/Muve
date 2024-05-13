@@ -9,8 +9,8 @@ import { IoIosSearch } from "react-icons/io";
 
 function Home() {
   const carouselImage = [
-    "./src/assets/95100659_2948213515262602_5117867185779245056_n.jpg",
-    "./src/assets/440441680_907998344669741_4758802302467900004_n.jpg",
+    "src/assets/95100659_2948213515262602_5117867185779245056_n.jpg",
+    "src/assets/440441680_907998344669741_4758802302467900004_n.jpg",
   ];
 
   const itemCategoies = [
