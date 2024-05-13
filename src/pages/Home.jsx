@@ -7,10 +7,12 @@ import { BackgroundCard } from "../components/BackgroundCard";
 import { Input } from "@material-tailwind/react";
 import { IoIosSearch } from "react-icons/io";
 
-import image2 from "../assets/440441680_907998344669741_4758802302467900004_n.jpg";
+import image1 from "../assets/1.png";
+import image2 from "../assets/2.png";
+import image3 from "../assets/3.png";
 
 function Home() {
-  const carouselImage = ["../assets/Cyber MOnday.png", image2];
+  const carouselImage = [image1, image2, image3];
 
   const itemCategoies = [
     "เสื้อผ้า",
