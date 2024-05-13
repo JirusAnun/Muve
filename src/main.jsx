@@ -15,7 +15,7 @@ import NotDevelopYet from "./components/NotDevelopYet.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />,
+    element: <Home />,
   },
   {
     path: "/login",

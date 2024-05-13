@@ -1,9 +1,10 @@
 import { FaGoogle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
     <div
-      className="flex flex-col justify-center items-center text-center font-noto h-screen overflow-hidden"
+      className="flex flex-col justify-center items-center text-center font-noto h-[100dvh] overflow-hidden"
       style={{
         backgroundImage: `url("https://images.unsplash.com/photo-1589363358751-ab05797e5629?q=80&w=2304&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
         backgroundSize: "cover",
@@ -19,10 +20,12 @@ function Login() {
           One-stop second-hand trading market for preloved items at Mahidol
           University.
         </h2>
-        <button className=" rounded-md px-4 py-2 flex items-center border-[1px] mt-3 w-[90%] justify-center">
-          <FaGoogle className="mr-2" />
-          Sign in with Google
-        </button>
+        <Link to="/" className=" flex items-center w-[100%] justify-center">
+          <button className=" rounded-md px-4 py-2 flex items-center border-[1px] mt-3 w-[90%] justify-center">
+            <FaGoogle className="mr-2" />
+            Sign in with Google
+          </button>
+        </Link>
       </div>
     </div>
   );
