@@ -17,16 +17,16 @@ import image3 from "../assets/3.png";
 function Home() {
   const carouselImage = [image1, image2, image3];
 
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  // TODO: Add useEffect to set loading to false after 0ms
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 10);
+  // // TODO: Add useEffect to set loading to false after 0ms
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setLoading(false);
+  //   }, 10);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const itemCategoies = [
     "เสื้อผ้า",
@@ -84,13 +84,13 @@ function Home() {
     },
   ];
 
-  if (loading) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div>
+  //       <Loading />
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className="flex flex-col items-center">
