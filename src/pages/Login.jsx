@@ -20,7 +20,7 @@ function Login() {
           One-stop second-hand trading market for preloved items at Mahidol
           University.
         </h2>
-        <Link to="/" className=" flex items-center w-[100%] justify-center">
+        <Link to="/Home" className=" flex items-center w-[100%] justify-center">
           <button className=" rounded-md px-4 py-2 flex items-center border-[1px] mt-3 w-[90%] justify-center">
             <FaGoogle className="mr-2" />
             Sign in with Google
