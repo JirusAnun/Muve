@@ -4,7 +4,7 @@ import {
   CardBody,
 } from "@material-tailwind/react";
 
-export function BackgroundCard({ name, time, img }) {
+function BackgroundCard({ name, time, img }) {
   return (
     <Card
       shadow={false}
@@ -28,3 +28,5 @@ export function BackgroundCard({ name, time, img }) {
     </Card>
   );
 }
+
+export default BackgroundCard;

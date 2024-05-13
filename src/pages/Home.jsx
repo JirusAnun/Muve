@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
 import CarouselAuto from "../components/Carousel";
 import Coin from "../components/Coin";
 import Header from "../components/Header";
-import { BackgroundCard } from "../components/BackgroundCard";
+import BackgroundCard from "../components/BackgroundCard";
 import Loading from "../components/Loading";
 
 import { Input } from "@material-tailwind/react";
@@ -15,7 +16,9 @@ import image2 from "../assets/2.png";
 import image3 from "../assets/3.png";
 
 function Home() {
+  const navigate = useNavigate();
   const carouselImage = [image1, image2, image3];
+  const [searchItems, setSearchItems] = useState("");
 
   // const [loading, setLoading] = useState(true);
 
@@ -92,6 +95,12 @@ function Home() {
   //   );
   // }
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      navigate(`/search?keyword=${searchItems}`);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="w-[90%] h-auto">
@@ -110,11 +119,16 @@ function Home() {
         <Input
           label="ค้นหา"
           icon={<IoIosSearch />}
+          value={searchItems}
+          onChange={(e) => {
+            setSearchItems(e.target.value);
+          }}
+          onKeyDown={handleKeyDown}
           labelProps={{
             className: "text-gray-400 font-noto",
           }}
           inputProps={{
-            className: "text-black font-noto",
+            className: "text-black font-noto text-lg",
           }}
         />
       </div>

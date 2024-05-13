@@ -11,6 +11,7 @@ import Chat from "./pages/Chat.jsx";
 import Profile from "./pages/Profile.jsx";
 import Login from "./pages/Login.jsx";
 import NotDevelopYet from "./components/NotDevelopYet.jsx";
+import Search from "./pages/Search.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/search",
+    element: <Search />,
   },
   {
     path: "*",
