@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
+import { BsCoin } from "react-icons/bs";
 
 function DetailCard(params) {
   return (
@@ -12,8 +13,11 @@ function DetailCard(params) {
           />
         </CardHeader>
         <CardBody className="flex flex-col justify-center items-center">
-          <h4>{params.itemName}</h4>
-          <p>{params.price}</p>
+          <h4 className=" font-bold text-black text-lg">{params.itemName}</h4>
+          <div className="flex flex-row justify-center items-center">
+            <BsCoin className="text-black mr-2" />
+            <p>{params.price}</p>
+          </div>
         </CardBody>
       </Card>
     </>

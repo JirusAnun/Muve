@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { Input } from "@material-tailwind/react";
 
@@ -10,16 +11,47 @@ import Header from "../components/Header";
 import DetailCard from "../components/DetailCard";
 
 function Search() {
-  let [searchParams, setSearchParams] = useSearchParams();
-
+  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+  const { keyword, categories: categoriesParam } =
+    Object.fromEntries(searchParams);
+
+  const [selectedCategories, setSelectedCategories] = useState(
+    categoriesParam ? categoriesParam.split(",") : []
+  );
+  const [filteredItems, setFilteredItems] = useState([]);
+
+  useEffect(() => {
+    setFilteredItems(
+      newItems.map(
+        (item) =>
+          item.name.includes(keyword) &&
+          (selectedCategories.length === 0 ||
+            item.category.some((cat) => selectedCategories.includes(cat)))
+      )
+    );
+  }, [keyword, selectedCategories]);
+
+  const toggleCategory = (category) => {
+    setSelectedCategories((prevCategories) =>
+      prevCategories.includes(category)
+        ? prevCategories.filter((cat) => cat !== category)
+        : [...prevCategories, category]
+    );
+    setSearchParams({
+      categories: selectedCategories.join(","),
+      keyword: keyword,
+    });
+  };
 
   const itemCategoies = [
     "เสื้อผ้า",
-    "เครื่องสำอาง",
-    "ของใช้",
+    "กระเป๋า",
+    "รองเท้า",
+    "เครื่องสำอางค์",
     "เฟอร์นิเจอร์",
-    "อาหาร",
+    "อุปกรณ์อิเล็กทรอนิกส์",
     "ผู้ชาย",
     "ผู้หญิง",
   ];
@@ -27,28 +59,43 @@ function Search() {
   const newItems = [
     {
       name: "โซฟา",
-      price: "$ 750",
+      price: "750",
       img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mYXxlbnwwfHwwfHx8MA%3D%3D",
+      category: ["เฟอร์นิเจอร์"],
     },
     {
       name: "รองเท้า Nike",
-      price: "$ 500",
+      price: "500",
       img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8fDA%3D",
+      category: ["รองเท้า", "ผู้ชาย"],
     },
     {
       name: "เสื้อยืด",
-      price: "$ 80",
+      price: "80",
       img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnR8ZW58MHx8MHx8fDA%3D",
+      category: ["เสื้อผ้า"],
     },
     {
       name: "กล้องฟิลม์",
-      price: "$ 390",
+      price: "390",
       img: "https://images.unsplash.com/photo-1624192648336-ecd2d3456231?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmxpbSUyMGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D",
+      category: ["อุปกรณ์อิเล็กทรอนิกส์"],
     },
   ];
 
-  const keyword = searchParams.get("keyword");
-  const filteredItems = newItems.filter((item) => item.name.includes(keyword));
+  useEffect(() => {
+    let newFilteredItems = newItems.filter((item) =>
+      item.name.includes(keyword)
+    );
+
+    if (selectedCategories.length > 0) {
+      newFilteredItems = newFilteredItems.filter((item) =>
+        item.category.some((cat) => selectedCategories.includes(cat))
+      );
+    }
+
+    setFilteredItems(newFilteredItems);
+  }, [keyword, selectedCategories]);
 
   return (
     <div className="flex flex-col items-center font-noto">
@@ -90,7 +137,10 @@ function Search() {
         {itemCategoies.map((category, i) => (
           <button
             key={i}
-            className="bg-gray-900 hover:bg-primary text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap"
+            onClick={() => toggleCategory(category)}
+            className={`text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap ${
+              selectedCategories.includes(category) ? "bg-primary" : "bg-black"
+            }`}
           >
             {category}
           </button>
