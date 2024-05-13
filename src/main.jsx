@@ -14,11 +14,11 @@ import NotDevelopYet from "./components/NotDevelopYet.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/login",
     element: <Login />,
   },
   {
-    path: "/home",
+    path: "/",
     element: <Home />,
   },
   {

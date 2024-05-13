@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <div className="fixed bottom-0 z-50 w-full -translate-x-1/2 bg-white border-t border-gray-200 left-1/2 dark:bg-gray-700 dark:border-gray-600 rounded-t-3xl">
       <div className="grid h-full max-w-lg grid-cols-5 mx-auto">
-        <Link to="/home">
+        <Link to="/">
           <button
             data-tooltip-target="tooltip-home"
             type="button"
@@ -17,14 +17,14 @@ function Navbar() {
           >
             <GoHome
               className={` w-[20px] h-[20px] group-hover:text-primary ${
-                window.location.pathname === "/home"
+                window.location.pathname === "/"
                   ? "text-primary"
                   : "text-gray-400"
               }`}
             />
             <p
               className={`font-noto mt-1 text-xs font-medium group-hover:text-primary ${
-                window.location.pathname === "/home"
+                window.location.pathname === "/"
                   ? "text-primary"
                   : "text-gray-400"
               }`}
