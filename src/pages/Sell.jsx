@@ -1,11 +1,7 @@
 import Navbar from "../components/Navbar";
 
 import { useState } from "react";
-import {
-  Card,
-  Input,
-  Button,
-} from "@material-tailwind/react";
+import { Card, Input, Button } from "@material-tailwind/react";
 
 function Sell() {
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -67,6 +63,7 @@ function Sell() {
               <h4 className=" text-base mt-2">รูปถ่ายสินค้า</h4>
               <Input
                 type="file"
+                accept="image/*"
                 className=" !border-t-blue-gray-200 focus:!border-t-gray-900 h-[5vh]"
                 labelProps={{
                   className: "before:content-none after:content-none",

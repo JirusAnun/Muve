@@ -207,8 +207,10 @@ function Home() {
           <button
             key={i}
             onClick={() => toggleCategory(category)}
-            className={`text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap ${
-              selectedCategories.includes(category) ? "bg-primary" : "bg-black"
+            className={`text-black border-[1px] border-black font-medium text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap ${
+              selectedCategories.includes(category)
+                ? "bg-primary border-primary text-white"
+                : " bg-transparent"
             }`}
           >
             {category}
