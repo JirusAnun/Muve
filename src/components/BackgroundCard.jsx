@@ -2,7 +2,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  Typography,
 } from "@material-tailwind/react";
 
 export function BackgroundCard({ name, time, img }) {
