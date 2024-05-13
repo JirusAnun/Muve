@@ -11,7 +11,6 @@ import DetailCard from "../components/DetailCard";
 
 function Search() {
   let [searchParams, setSearchParams] = useSearchParams();
-  //find query use "searchParams.get("keyword")"
 
   const navigate = useNavigate();
 
@@ -48,6 +47,9 @@ function Search() {
     },
   ];
 
+  const keyword = searchParams.get("keyword");
+  const filteredItems = newItems.filter((item) => item.name.includes(keyword));
+
   return (
     <div className="flex flex-col items-center font-noto">
       <div className="w-[90%] h-auto">
@@ -61,7 +63,8 @@ function Search() {
 
       {/* Search */}
       <div className="flex flex-row justify-center items-center w-[90%]">
-        <button onClick={() => navigate(-1)}>
+        <button onClick={() => navigate("/")}>
+          {" "}
           <PiCaretLeftThin className="w-[30px] h-[30px] text-black mr-5" />
         </button>
         <div className="w-[70%] mr-5">
@@ -95,18 +98,37 @@ function Search() {
       </div>
 
       <div className="flex w-[90%] mt-3">
-        <p className=" border-b-[1px] border-gray-800 font-light text-sm">
-          12 items found
+        <p className="border-b-[1px] border-gray-800 font-light text-sm">
+          {filteredItems.length} items found
         </p>
       </div>
 
       <div className="grid grid-cols-2 gap-3 w-[90%] mt-3">
-        {newItems.map((item, i) => (
-          <DetailCard itemName={item.name} price={item.price} img={item.img} />
+        {filteredItems.map((item, i) => (
+          <DetailCard
+            key={i}
+            itemName={item.name}
+            price={item.price}
+            img={item.img}
+          />
         ))}
       </div>
 
-      <div className="h-[15vh] w-[100%]" />
+      {filteredItems.length === 0 && (
+        <div className="flex flex-col w-[80%] justify-center items-center text-center mt-8">
+          <img
+            src="https://img.freepik.com/free-vector/hand-drawn-dog-outline-illustration_23-2149277839.jpg?t=st=1715615838~exp=1715619438~hmac=574290417d024c53063bf003fdcc0b57d535642e81c890625ffaf8bc87caa150&w=1800"
+            alt="Not found"
+            className="w-[80%] h-[80%]"
+          />
+          <h4 className=" font-bold text-lg">"{keyword}" Not found</h4>
+          <p>
+            No search results found. Please try again with a different keyword.
+          </p>{" "}
+        </div>
+      )}
+
+      <div className="h-[5vh] w-[100%]" />
     </div>
   );
 }

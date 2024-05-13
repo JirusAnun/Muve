@@ -6,6 +6,7 @@ import CarouselAuto from "../components/Carousel";
 import Coin from "../components/Coin";
 import Header from "../components/Header";
 import BackgroundCard from "../components/BackgroundCard";
+import DetailCard from "../components/DetailCard";
 import Loading from "../components/Loading";
 
 import { Input } from "@material-tailwind/react";
@@ -67,22 +68,22 @@ function Home() {
   const newItems = [
     {
       name: "โซฟา",
-      time: "$ 750",
+      price: "$ 750",
       img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mYXxlbnwwfHwwfHx8MA%3D%3D",
     },
     {
       name: "รองเท้า Nike",
-      time: "$ 500",
+      price: "$ 500",
       img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8fDA%3D",
     },
     {
       name: "เสื้อยืด",
-      time: "$ 80",
+      price: "$ 80",
       img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnR8ZW58MHx8MHx8fDA%3D",
     },
     {
       name: "กล้องฟิลม์",
-      time: "$ 390",
+      price: "$ 390",
       img: "https://images.unsplash.com/photo-1624192648336-ecd2d3456231?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmxpbSUyMGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D",
     },
   ];
@@ -94,6 +95,10 @@ function Home() {
   //     </div>
   //   );
   // }
+
+  const filteredItems = newItems.filter((item) =>
+    item.name.includes(searchItems)
+  );
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -116,21 +121,23 @@ function Home() {
 
       {/* Search */}
       <div className="w-[90%] mt-5">
-        <Input
-          label="ค้นหา"
-          icon={<IoIosSearch />}
-          value={searchItems}
-          onChange={(e) => {
-            setSearchItems(e.target.value);
-          }}
-          onKeyDown={handleKeyDown}
-          labelProps={{
-            className: "text-gray-400 font-noto",
-          }}
-          inputProps={{
-            className: "text-black font-noto text-lg",
-          }}
-        />
+        <div style={{ position: "sticky", top: 0 }}>
+          <Input
+            label="ค้นหา"
+            icon={<IoIosSearch />}
+            value={searchItems}
+            onChange={(e) => {
+              setSearchItems(e.target.value);
+            }}
+            onKeyDown={handleKeyDown}
+            labelProps={{
+              className: "text-gray-400 font-noto",
+            }}
+            inputProps={{
+              className: "text-black font-noto text-lg",
+            }}
+          />
+        </div>
       </div>
       <div className="flex overflow-x-scroll space-x-2 w-[90%] mt-3 ">
         {itemCategoies.map((category, i) => (
@@ -161,9 +168,15 @@ function Home() {
         <h2 className="font-noto font-bold text-xl">สินค้าใหม่</h2>
       </div>
       <div className="grid grid-cols-2 gap-3 w-[90%]">
-        {newItems.map((item, i) => (
-          <BackgroundCard name={item.name} time={item.time} img={item.img} />
-        ))}
+        {newItems
+          .filter((item) => item.name.includes(searchItems))
+          .map((item, i) => (
+            <DetailCard
+              itemName={item.name}
+              price={item.price}
+              img={item.img}
+            />
+          ))}
       </div>
       <div className="h-[15vh] w-[100%]" />
       <Navbar />
