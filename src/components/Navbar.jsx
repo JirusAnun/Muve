@@ -17,14 +17,14 @@ function Navbar() {
           >
             <GoHome
               className={` w-[20px] h-[20px] group-hover:text-primary ${
-                window.location.pathname === "/"
+                window.location.pathname === "/Home"
                   ? "text-primary"
                   : "text-gray-400"
               }`}
             />
             <p
               className={`font-noto mt-1 text-xs font-medium group-hover:text-primary ${
-                window.location.pathname === "/"
+                window.location.pathname === "/Home"
                   ? "text-primary"
                   : "text-gray-400"
               }`}
