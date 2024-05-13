@@ -110,7 +110,12 @@ function Search() {
 
       {/* Search */}
       <div className="flex flex-row justify-center items-center w-[90%]">
-        <button onClick={() => navigate("/")}>
+        <button
+          onClick={() => {
+            const categoriesQuery = selectedCategories.join(",");
+            navigate(`/?keyword=${keyword}&categories=${categoriesQuery}`);
+          }}
+        >
           {" "}
           <PiCaretLeftThin className="w-[30px] h-[30px] text-black mr-5" />
         </button>

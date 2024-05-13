@@ -19,11 +19,12 @@ import image3 from "../assets/3.png";
 function Home() {
   const navigate = useNavigate();
   const carouselImage = [image1, image2, image3];
-  const [searchItems, setSearchItems] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { keyword = "", categories: categoriesParam } =
     Object.fromEntries(searchParams);
+
+  const [searchItems, setSearchItems] = useState(keyword || "");
 
   const [selectedCategories, setSelectedCategories] = useState(
     categoriesParam ? categoriesParam.split(",") : []
@@ -158,7 +159,8 @@ function Home() {
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      navigate(`/search?keyword=${searchItems}`);
+      const categoriesQuery = selectedCategories.join(",");
+      navigate(`/search?keyword=${searchItems}&categories=${categoriesQuery}`);
     }
   };
 
