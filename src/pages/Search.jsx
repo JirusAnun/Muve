@@ -15,6 +15,7 @@ import {
   Button,
   Typography,
   IconButton,
+  Slider,
 } from "@material-tailwind/react";
 
 function Search() {
@@ -27,6 +28,8 @@ function Search() {
   const [selectedCategories, setSelectedCategories] = useState(
     categoriesParam ? categoriesParam.split(",") : []
   );
+
+  const [selectedLocation, setSelectedLocation] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
 
   const [open, setOpen] = useState(false);
@@ -57,6 +60,14 @@ function Search() {
     });
   };
 
+  const toggleLocation = (location) => {
+    setSelectedLocation((prevLocation) =>
+      prevLocation.includes(location)
+        ? prevLocation.filter((loc) => loc !== location)
+        : [...prevLocation, location]
+    );
+  };
+
   const itemCategoies = [
     "เสื้อผ้า",
     "กระเป๋า",
@@ -68,30 +79,44 @@ function Search() {
     "ผู้หญิง",
   ];
 
+  const itemLocation = [
+    "ประตู 4",
+    "ประตู 3",
+    "หน้ามหาวิทยาลัย",
+    "ตั้งสิน",
+    "ในมหาวิทยาลัย",
+    "MLC",
+    "ซอยสหพร",
+  ];
+
   const newItems = [
     {
       name: "โซฟา",
       price: "750",
       img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mYXxlbnwwfHwwfHx8MA%3D%3D",
       category: ["เฟอร์นิเจอร์"],
+      location: ["ประตู 4", "ประตู 3"],
     },
     {
       name: "รองเท้า Nike",
       price: "500",
       img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8fDA%3D",
       category: ["รองเท้า", "ผู้ชาย"],
+      location: ["หน้ามหาวิทยาลัย", "ตั้งสิน"],
     },
     {
       name: "เสื้อยืด",
       price: "80",
       img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnR8ZW58MHx8MHx8fDA%3D",
       category: ["เสื้อผ้า"],
+      location: ["ในมหาวิทยาลัย", "MLC"],
     },
     {
       name: "กล้องฟิลม์",
       price: "390",
       img: "https://images.unsplash.com/photo-1624192648336-ecd2d3456231?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmxpbSUyMGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D",
       category: ["อุปกรณ์อิเล็กทรอนิกส์"],
+      location: ["ซอยสหพร"],
     },
   ];
 
@@ -106,8 +131,14 @@ function Search() {
       );
     }
 
+    if (selectedLocation.length > 0) {
+      newFilteredItems = newFilteredItems.filter((item) =>
+        item.location.some((loc) => selectedLocation.includes(loc))
+      );
+    }
+
     setFilteredItems(newFilteredItems);
-  }, [keyword, selectedCategories]);
+  }, [keyword, selectedCategories, selectedLocation]);
 
   return (
     <div className="flex flex-col items-center font-noto">
@@ -124,8 +155,7 @@ function Search() {
       <div className="flex flex-row justify-center items-center w-[90%]">
         <button
           onClick={() => {
-            const categoriesQuery = selectedCategories.join(",");
-            navigate(`/?keyword=${keyword}&categories=${categoriesQuery}`);
+            navigate("/");
           }}
         >
           {" "}
@@ -159,7 +189,7 @@ function Search() {
         onClose={closeDrawer}
         className="p-4 rounded-t-3xl"
       >
-        <div className="mb-6 flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <div className="flex-grow text-center">
             <h4 className=" font-bold text-lg pl-7">Filter</h4>
           </div>
@@ -181,6 +211,49 @@ function Search() {
           </IconButton>
         </div>
         {/* TODO:add content here */}
+
+        <div className="w-full h-3">
+          <h4 className="font-semibold text-base text-center">Categories</h4>
+          <div className="flex overflow-x-scroll space-x-2 w-[100%] mt-3 ">
+            {itemCategoies.map((category, i) => (
+              <button
+                key={i}
+                onClick={() => toggleCategory(category)}
+                className={`text-black font-medium text-xs font-noto py-3 px-7 border-[1px] border-black rounded-2xl whitespace-nowrap ${
+                  selectedCategories.includes(category)
+                    ? "bg-primary text-white border-primary"
+                    : "bg-transparent"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          <h4 className="font-semibold text-base text-center mt-3">Location</h4>
+          <div className="flex overflow-x-scroll space-x-2 w-[100%] mt-1 ">
+            {itemLocation.map((location, i) => (
+              <button
+                key={i}
+                onClick={() => toggleLocation(location)}
+                className={`text-black font-medium text-xs font-noto py-3 px-7 border-[1px] border-black rounded-2xl whitespace-nowrap ${
+                  selectedLocation.includes(location)
+                    ? "bg-primary text-white border-primary"
+                    : "bg-transparent"
+                }`}
+              >
+                {location}
+              </button>
+            ))}
+          </div>
+
+          <h4 className="font-semibold text-base text-center mt-3">Price</h4>
+          <div className="flex justify-center">
+            <div className="w-[90%]">
+              <Slider defaultValue={50} />
+            </div>
+          </div>
+        </div>
       </Drawer>
 
       <div className="flex overflow-x-scroll space-x-2 w-[90%] mt-3 ">
@@ -188,8 +261,10 @@ function Search() {
           <button
             key={i}
             onClick={() => toggleCategory(category)}
-            className={`text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap ${
-              selectedCategories.includes(category) ? "bg-primary" : "bg-black"
+            className={`text-black font-light text-xs font-noto py-3 px-7 border-[1px] border-black rounded-2xl whitespace-nowrap ${
+              selectedCategories.includes(category)
+                ? "bg-primary border-primary text-white"
+                : " bg-transparent"
             }`}
           >
             {category}
