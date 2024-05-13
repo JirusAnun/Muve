@@ -23,98 +23,98 @@ function Profile() {
           />
 
           <div className=" ml-2 mt-1 flex flex-col justify-center pr-5">
-            <h3 className="font-bold text-xl">Jiruschai Anuntabundit</h3>
-            <p className=" font-light text-sm">Hamjiruschai@gmail.com</p>
+            <h3 className="font-bold text-base">Jiruschai Anuntabundit</h3>
+            <p className=" font-light text-xs">Hamjiruschai@gmail.com</p>
           </div>
         </div>
 
         <div className="w-[90%] h-auto flex flex-col border-2 font-noto text-lg rounded-xl mt-5 pb-3">
           <div>
-            <h3 className=" font-bold text-2xl ml-5 mt-5 mb-2">General</h3>
+            <h3 className=" font-bold text-base ml-5 mt-5 mb-2">General</h3>
           </div>
           <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <GoPerson className=" w-[25px] h-[25px]" />
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <GoPerson className=" w-[20px] h-[20px]" />
             </div>
-            <p className="mt-1 ml-5 flex-grow">Personal Details</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
-            </div>
-          </div>
-
-          <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <HiOutlineShoppingBag className=" w-[25px] h-[25px]" />
-            </div>
-            <p className="mt-1 ml-5 flex-grow">My Order</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
+            <p className="mt-1 ml-5 flex-grow text-sm ">Personal Details</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
             </div>
           </div>
 
           <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <VscHistory className=" w-[25px] h-[25px]" />
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <HiOutlineShoppingBag className=" w-[20px] h-[20px]" />
             </div>
-            <p className="mt-1 ml-5 flex-grow">Order History</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
+            <p className="mt-1 ml-5 flex-grow text-sm">My Order</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
             </div>
           </div>
 
           <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <BsCalendarDate className=" w-[25px] h-[25px]" />
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <VscHistory className=" w-[20px] h-[20px]" />
             </div>
-            <p className="mt-1 ml-5 flex-grow">Available Date</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
+            <p className="mt-1 ml-5 flex-grow text-sm">Order History</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
+            </div>
+          </div>
+
+          <div className="flex flex-row items-center ml-5 p-3 w-full">
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <BsCalendarDate className=" w-[20px] h-[20px]" />
+            </div>
+            <p className="mt-1 ml-5 flex-grow text-sm">Available Date</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
             </div>
           </div>
         </div>
 
         <div className="w-[90%] h-auto flex flex-col border-2 font-noto text-lg rounded-xl mt-5 pb-3">
           <div>
-            <h3 className=" font-bold text-2xl ml-5 mt-5 mb-2">Setting</h3>
+            <h3 className=" font-bold text-base ml-5 mt-5 mb-2">Setting</h3>
           </div>
 
           <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <IoSettingsOutline className=" w-[25px] h-[25px]" />
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <IoSettingsOutline className=" w-[20px] h-[20px]" />
             </div>
-            <p className="mt-1 ml-5 flex-grow">Setting</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
-            </div>
-          </div>
-
-          <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <HiLanguage className=" w-[25px] h-[25px]" />
-            </div>
-            <p className="mt-1 ml-5 flex-grow">Language</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
+            <p className="mt-1 ml-5 flex-grow text-sm">Setting</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
             </div>
           </div>
 
           <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <MdOutlinePrivacyTip className=" w-[25px] h-[25px]" />
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <HiLanguage className=" w-[20px] h-[20px]" />
             </div>
-            <p className="mt-1 ml-5 flex-grow">Privacy & Policy</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
+            <p className="mt-1 ml-5 flex-grow text-sm">Language</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
             </div>
           </div>
 
           <div className="flex flex-row items-center ml-5 p-3 w-full">
-            <div className="w-[40px] h-[40px] bg-gray-300 rounded-md flex justify-center items-center">
-              <BsTelephone className=" w-[25px] h-[25px]" />
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <MdOutlinePrivacyTip className=" w-[20px] h-[20px]" />
             </div>
-            <p className="mt-1 ml-5 flex-grow">Contact Us</p>
-            <div className="flex w-[15vw] justify-center items-center mt-1">
-              <GrFormNext className="w-[25px] h-[25px] text-gray-800" />
+            <p className="mt-1 ml-5 flex-grow text-sm">Privacy & Policy</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
+            </div>
+          </div>
+
+          <div className="flex flex-row items-center ml-5 p-3 w-full">
+            <div className="w-[30px] h-[30px] bg-gray-300 rounded-md flex justify-center items-center">
+              <BsTelephone className=" w-[20px] h-[20px]" />
+            </div>
+            <p className="mt-1 ml-5 flex-grow text-sm">Contact Us</p>
+            <div className="flex w-[15vw] justify-center items-center mt-1 mr-3">
+              <GrFormNext className="w-[20px] h-[20px] text-gray-800" />
             </div>
           </div>
         </div>
