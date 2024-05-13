@@ -1,9 +1,12 @@
+import React, { useState, useEffect } from "react";
+
 import Navbar from "../components/Navbar";
 import CarouselAuto from "../components/Carousel";
 import Coin from "../components/Coin";
 import Header from "../components/Header";
-
 import { BackgroundCard } from "../components/BackgroundCard";
+import Loading from "../components/Loading";
+
 import { Input } from "@material-tailwind/react";
 import { IoIosSearch } from "react-icons/io";
 
@@ -13,6 +16,17 @@ import image3 from "../assets/3.png";
 
 function Home() {
   const carouselImage = [image1, image2, image3];
+
+  const [loading, setLoading] = useState(true);
+
+  // TODO: Add useEffect to set loading to false after 0ms
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const itemCategoies = [
     "เสื้อผ้า",
@@ -69,6 +83,14 @@ function Home() {
       img: "https://images.unsplash.com/photo-1624192648336-ecd2d3456231?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmxpbSUyMGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D",
     },
   ];
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col items-center">
