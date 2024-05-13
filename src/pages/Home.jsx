@@ -24,26 +24,49 @@ function Home() {
     "ผู้หญิง",
   ];
 
-  const items = [
+  const receiveItems = [
     {
       name: "กระเป๋า",
       time: "วันนี้ 16:00",
-      img: "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       name: "เสื้อ",
       time: "พรุ่งนี้ 7:00",
-      img: "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      img: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2hpcnR8ZW58MHx8MHx8fDA%3D",
     },
     {
       name: "กระโปรง",
       time: "พรุ่งนี้ 17:00",
-      img: "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      img: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2tpcnR8ZW58MHx8MHx8fDA%3D",
     },
     {
-      name: "เสื้อกาวน์",
-      time: "16:00 17 พ.ค",
-      img: "https://images.unsplash.com/photo-1552960562-daf630e9278b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      name: "ลิปสติก",
+      time: "17 พ.ค 16:00",
+      img: "https://images.unsplash.com/photo-1625093742435-6fa192b6fb10?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlwc3RpY2t8ZW58MHx8MHx8fDA%3D",
+    },
+  ];
+
+  const newItems = [
+    {
+      name: "โซฟา",
+      time: "$ 750",
+      img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c29mYXxlbnwwfHwwfHx8MA%3D%3D",
+    },
+    {
+      name: "รองเท้า Nike",
+      time: "$ 500",
+      img: "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2hvZXN8ZW58MHx8MHx8fDA%3D",
+    },
+    {
+      name: "เสื้อยืด",
+      time: "$ 80",
+      img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2hpcnR8ZW58MHx8MHx8fDA%3D",
+    },
+    {
+      name: "กล้องฟิลม์",
+      time: "$ 390",
+      img: "https://images.unsplash.com/photo-1624192648336-ecd2d3456231?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmxpbSUyMGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D",
     },
   ];
 
@@ -71,9 +94,12 @@ function Home() {
           }}
         />
       </div>
-      <div class="flex overflow-x-scroll space-x-2 w-[90%] mt-3 ">
+      <div className="flex overflow-x-scroll space-x-2 w-[90%] mt-3 ">
         {itemCategoies.map((category, i) => (
-          <button class=" bg-gray-900 hover:bg-primary text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap">
+          <button
+            key={i}
+            className="bg-gray-900 hover:bg-primary text-white font-light text-xs font-noto py-3 px-7 rounded-2xl whitespace-nowrap"
+          >
             {category}
           </button>
         ))}
@@ -84,7 +110,7 @@ function Home() {
         <h2 className="font-noto font-bold text-xl">สิ่งของที่ต้องได้รับ</h2>
       </div>
       <div className="overflow-x-scroll flex gap-3 w-[90%]">
-        {items.map((item, i) => (
+        {receiveItems.map((item, i) => (
           <div key={i} style={{ width: "auto", height: "auto" }}>
             <BackgroundCard name={item.name} time={item.time} img={item.img} />
           </div>
@@ -97,7 +123,7 @@ function Home() {
         <h2 className="font-noto font-bold text-xl">สินค้าใหม่</h2>
       </div>
       <div className="grid grid-cols-2 gap-3 w-[90%]">
-        {items.map((item, i) => (
+        {newItems.map((item, i) => (
           <BackgroundCard name={item.name} time={item.time} img={item.img} />
         ))}
       </div>
