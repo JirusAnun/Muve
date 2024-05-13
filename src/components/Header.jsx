@@ -6,7 +6,11 @@ function Header() {
         alt=""
         className="w-[40px] h-[40px] object-fit rounded-full m-3 border-2"
       />
-      <p className="flex-grow font-bold">สวัสดี คุณJiruschai</p>
+      <div className=" w-[70%]">
+        <p className="font-bold overflow-hidden overflow-ellipsis whitespace-nowrap">
+          สวัสดี คุณJiruschai Anuntabundit
+        </p>
+      </div>
     </header>
   );
 }
