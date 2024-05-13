@@ -9,6 +9,7 @@ import Category from "./pages/Category.jsx";
 import Sell from "./pages/Sell.jsx";
 import Chat from "./pages/Chat.jsx";
 import Profile from "./pages/Profile.jsx";
+import NotDevelopYet from "./components/NotDevelopYet.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "*",
+    element: <NotDevelopYet />,
   },
 ]);
 
