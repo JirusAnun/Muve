@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { Input } from "@material-tailwind/react";
 
 import { IoIosSearch } from "react-icons/io";
 import { PiCaretLeftThin } from "react-icons/pi";
@@ -9,6 +8,14 @@ import { PiSlidersHorizontalThin } from "react-icons/pi";
 import Coin from "../components/Coin";
 import Header from "../components/Header";
 import DetailCard from "../components/DetailCard";
+
+import {
+  Input,
+  Drawer,
+  Button,
+  Typography,
+  IconButton,
+} from "@material-tailwind/react";
 
 function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -21,6 +28,11 @@ function Search() {
     categoriesParam ? categoriesParam.split(",") : []
   );
   const [filteredItems, setFilteredItems] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  const openDrawer = () => setOpen(true);
+  const closeDrawer = () => setOpen(false);
 
   useEffect(() => {
     setFilteredItems(
@@ -135,8 +147,41 @@ function Search() {
             }}
           />
         </div>
-        <PiSlidersHorizontalThin className="w-[30px] h-[30px] text-black" />
+        <PiSlidersHorizontalThin
+          onClick={openDrawer}
+          className="w-[30px] h-[30px] text-black"
+        />
       </div>
+
+      <Drawer
+        open={open}
+        placement="bottom"
+        onClose={closeDrawer}
+        className="p-4 rounded-t-3xl"
+      >
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex-grow text-center">
+            <h4 className=" font-bold text-lg pl-7">Filter</h4>
+          </div>
+          <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="h-5 w-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </IconButton>
+        </div>
+        {/* TODO:add content here */}
+      </Drawer>
 
       <div className="flex overflow-x-scroll space-x-2 w-[90%] mt-3 ">
         {itemCategoies.map((category, i) => (
