@@ -75,7 +75,9 @@ function Home() {
       <div className="w-[90%] h-auto">
         <div className="flex flex-row justify-between">
           <Header />
-          <Coin />
+          <div className="flex">
+            <Coin />
+          </div>
         </div>
       </div>
 
