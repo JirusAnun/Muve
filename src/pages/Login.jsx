@@ -1,6 +1,6 @@
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { Global, css } from '@emotion/react'
+import { Global, css } from "@emotion/react";
 
 function Login() {
   return (
