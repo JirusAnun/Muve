@@ -13,6 +13,7 @@ import Login from "./pages/Login.jsx";
 import NotDevelopYet from "./components/NotDevelopYet.jsx";
 import Search from "./pages/Search.jsx";
 import TopUp from "./pages/TopUp.jsx";
+import Product from "./pages/Product.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/topup",
     element: <TopUp />,
+  },
+  {
+    path: "/product/:id",
+    element: <Product />,
   },
   {
     path: "*",
